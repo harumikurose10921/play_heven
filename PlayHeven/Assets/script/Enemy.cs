@@ -3,7 +3,24 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
     GameObject player;
-    public float move=0.5f;
+    public float move=0.05f;
+    public float epos = 1.5f;
+    IEnumerator _SetTrigger(string name)
+    {
+        Animator animator = GetComponent<Animator>();
+        animator.SetBool(name, true);
+        yield return new WaitForSeconds(0);
+        animator.SetBool(name, false);
+    }
+    /// <summary>
+    /// フラグのトリガー設定。
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    void SetTrigger(string name)
+    {
+        StartCoroutine(_SetTrigger(name));
+    }
 	// Use this for initialization
 	void Start () {
         player = GameObject.Find("overlord");
@@ -15,14 +32,12 @@ public class Enemy : MonoBehaviour {
         Vector3 pos = transform.localPosition;
         pos.x -= move;
         transform.localPosition = pos;
-        if (dist < 0.5f)
+        if (dist < epos)
         {
-            GameObject.Destroy(gameObject);
+            SetTrigger("isattack");
+            //GameObject.Destroy(gameObject);
         }
-        //CharacterController ctr = GetComponent<CharacterController>();
-        //Vector3 move = new Vector3();
-        //move.x -= 0.05f;
-        //ctr.Move(move);
+       
         
 	}
 }
