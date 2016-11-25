@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class Player : MonoBehaviour {
+    //GameObject enemy = GameObject.Find("DungeonSkeleton_demo");
+
     IEnumerator _SetTrigger(string name)
     {
         Animator animator = GetComponent<Animator>();
@@ -20,7 +22,7 @@ public class Player : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
-	
+	 
 	}
 	
 	// Update is called once per frame
@@ -33,6 +35,15 @@ public class Player : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.D) == true)
         {
             SetTrigger("block");
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            SetTrigger("isattack1L");
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            SetTrigger("block");
+            
         }
 	}
 }
