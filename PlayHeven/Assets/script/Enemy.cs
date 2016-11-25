@@ -4,7 +4,7 @@ using System.Collections;
 public class Enemy : MonoBehaviour {
     GameObject player;
     public float move=0.05f;
-    public float epos = 1.5f;
+    public float epos = 1.0f;
     IEnumerator _SetTrigger(string name)
     {
         Animator animator = GetComponent<Animator>();
@@ -30,14 +30,17 @@ public class Enemy : MonoBehaviour {
 	void Update () {
         float dist = Vector3.Distance(transform.localPosition, player.transform.localPosition);
         Vector3 pos = transform.localPosition;
-        pos.x -= move;
-        transform.localPosition = pos;
-        if (dist < epos)
+        if (dist > epos)
         {
+            pos.x -= move;
+        }
+        else if (dist < epos)
+        {
+            
             SetTrigger("isattack");
             //GameObject.Destroy(gameObject);
         }
-       
-        
+        transform.localPosition = pos;
 	}
+   
 }

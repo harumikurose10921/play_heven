@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\script\Enemy.cs" />
      <Compile Include="Assets\script\Player.cs" />
+     <Compile Include="Assets\script\hit.cs" />
      <Compile Include="Assets\script\result.cs" />
      <Compile Include="Assets\script\title.cs" />
      <None Include="Assets\overlord\models\overlord\Materials\clothshader.shader" />
