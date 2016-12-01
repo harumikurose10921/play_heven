@@ -15,8 +15,8 @@ public class hit : MonoBehaviour {
 
     void OnTriggerEnter(Collider collision)
     {
-        Animator animator = GetComponent<Animator>();
-        animator.speed = -1.0f;
-        //Destroy(gameObject);
+        //Animator animator = GetComponent<Animator>();
+        //animator.speed = -1.0f;
+        Destroy(gameObject);
     }
 }

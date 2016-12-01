@@ -28,15 +28,15 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        int attack = 0;
         float dist = Vector3.Distance(transform.localPosition, player.transform.localPosition);
         Vector3 pos = transform.localPosition;
         if (dist > epos)
         {
             pos.x -= move;
         }
-        else if (dist < epos)
+        if (dist < epos)
         {
-            
             SetTrigger("isattack");
             //GameObject.Destroy(gameObject);
         }
