@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{E03264A9-F5BF-C489-0D75-264B18DEF7C1}") = "PlayHeven", "Assembly-CSharp.csproj", "{546A9416-40B6-5BD2-A3AA-1D44C33E0EE6}"
 EndProject
+Project("{E03264A9-F5BF-C489-0D75-264B18DEF7C1}") = "PlayHeven", "Assembly-UnityScript.unityproj", "{6DB5C055-4D1B-EA88-6B3C-DA31E2772ECB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{546A9416-40B6-5BD2-A3AA-1D44C33E0EE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{546A9416-40B6-5BD2-A3AA-1D44C33E0EE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{546A9416-40B6-5BD2-A3AA-1D44C33E0EE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DB5C055-4D1B-EA88-6B3C-DA31E2772ECB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DB5C055-4D1B-EA88-6B3C-DA31E2772ECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DB5C055-4D1B-EA88-6B3C-DA31E2772ECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DB5C055-4D1B-EA88-6B3C-DA31E2772ECB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
