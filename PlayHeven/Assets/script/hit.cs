@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class hit : MonoBehaviour {
 
@@ -17,6 +18,21 @@ public class hit : MonoBehaviour {
     {
         //Animator animator = GetComponent<Animator>();
         //animator.speed = -1.0f;
-        Destroy(gameObject);
+        if (collision.gameObject.tag == "enemy")
+        {
+            SceneManager.LoadScene("result");
+        }
+        if (collision.gameObject.tag == "Player")
+        {
+            SceneManager.LoadScene("title");
+        }
+        //for(int i = 0; i < 2; i++)
+        //{
+        //    //クリア条件にする
+        //    Destroy(gameObject);
+        //}
+       
     }
+
+    
 }

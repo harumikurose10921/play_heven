@@ -3,8 +3,10 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
     GameObject player;
+    GameObject enemy;
     public float move=0.05f;
     public float epos = 1.0f;
+    public int life = 2;
     IEnumerator _SetTrigger(string name)
     {
         Animator animator = GetComponent<Animator>();
@@ -24,11 +26,12 @@ public class Enemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         player = GameObject.Find("overlord");
+        enemy = GameObject.Find("DungeonSkeleton_demo");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        int attack = 0;
+       
         float dist = Vector3.Distance(transform.localPosition, player.transform.localPosition);
         Vector3 pos = transform.localPosition;
         if (dist > epos)
@@ -41,6 +44,11 @@ public class Enemy : MonoBehaviour {
             //GameObject.Destroy(gameObject);
         }
         transform.localPosition = pos;
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Instantiate(enemy, transform.localPosition, transform.rotation);
+        }
+        
 	}
    
 }

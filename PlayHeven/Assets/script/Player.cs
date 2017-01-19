@@ -19,6 +19,7 @@ public class Player : MonoBehaviour {
     void SetTrigger(string name)
     {
         StartCoroutine(_SetTrigger(name));
+        
     }
 	// Use this for initialization
 	void Start () {
