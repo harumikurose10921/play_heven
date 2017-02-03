@@ -3,10 +3,10 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class hit : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
+    GameObject enemy;
+    // Use this for initialization
+    void Start () {
+         enemy = GameObject.Find("DungeonSkeleton_demo");
 	}
 	
 	// Update is called once per frame
@@ -16,23 +16,21 @@ public class hit : MonoBehaviour {
 
     void OnTriggerEnter(Collider collision)
     {
-        //Animator animator = GetComponent<Animator>();
-        //animator.speed = -1.0f;
+   
         if (collision.gameObject.tag == "enemy")
         {
-            SceneManager.LoadScene("result");
+            Destroy(enemy);
+           //SceneManager.LoadScene("result");
         }
+
         if (collision.gameObject.tag == "Player")
         {
+            Destroy(gameObject);
             SceneManager.LoadScene("title");
         }
-        //for(int i = 0; i < 2; i++)
-        //{
-        //    //クリア条件にする
-        //    Destroy(gameObject);
-        //}
-       
+
+     
     }
 
-    
+
 }

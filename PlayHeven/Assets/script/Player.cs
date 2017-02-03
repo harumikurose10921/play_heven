@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Player : MonoBehaviour {
-    //GameObject enemy = GameObject.Find("DungeonSkeleton_demo");
-
+    GameObject enemy;
+   
     IEnumerator _SetTrigger(string name)
     {
         Animator animator = GetComponent<Animator>();
@@ -23,8 +24,8 @@ public class Player : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
-	 
-	}
+        enemy = GameObject.Find("DungeonSkeleton_demo");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -44,7 +45,13 @@ public class Player : MonoBehaviour {
         if (Input.GetMouseButtonDown(1))
         {
             SetTrigger("block");
-            
         }
+        
 	}
+    void OnEmitAttackCollision(Collider colision)
+    {
+        Debug.Log("OnEmitAttackCollision");
+        Destroy(enemy);
+    }
+
 }

@@ -50,5 +50,8 @@ public class Enemy : MonoBehaviour {
         }
         
 	}
-   
+   void OnEmitCollision(Collider colider)
+    {
+        Destroy(player);
+    }
 }
