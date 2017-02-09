@@ -54,6 +54,6 @@ public class Enemy : MonoBehaviour {
     {
         Debug.Log("OnEmitAttackCollision");
         Destroy(player);
-        //plyer.
+        plyer.Dead();
     }
 }
