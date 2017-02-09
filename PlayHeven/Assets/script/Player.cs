@@ -58,12 +58,10 @@ public class Player : MonoBehaviour {
         elife.Dead();
     }
    
-<<<<<<< HEAD
-}
-=======
+
     public void Dead()
     {
         SceneManager.LoadScene("result");
     }
 }
->>>>>>> b76adb4943134d45d2a82aa87bcd5ad6462fa4f9
+
