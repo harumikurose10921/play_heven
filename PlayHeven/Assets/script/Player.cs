@@ -52,7 +52,7 @@ public class Player : MonoBehaviour {
 	}
     void OnEmitAttackCollision(Collider colision)
     {
-        Instantiate(enemy,new Vector3(6.79f,0.54f,0.0f), transform.rotation);
+        Instantiate(enemy,new Vector3(6.79f,0.54f,0.0f), transform.Rotate(Vector3(0.0f, 0.0f, 5.0f)));
         Debug.Log("OnEmitAttackCollision");
         Destroy(enemy);
         elife.Dead();
