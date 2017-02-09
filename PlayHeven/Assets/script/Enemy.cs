@@ -52,6 +52,7 @@ public class Enemy : MonoBehaviour {
 	}
     void OnEmitCollision(Collider colider)
     {
+        Instantiate(enemy, transform.localPosition, transform.rotation);
         Debug.Log("OnEmitAttackCollision");
         Destroy(player);
         //plyer.
