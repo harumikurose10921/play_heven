@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
     GameObject enemy;
-    Enemylife elife;
     public int count = 0;
     IEnumerator _SetTrigger(string name)
     {
@@ -52,16 +51,23 @@ public class Player : MonoBehaviour {
 	}
     void OnEmitAttackCollision(Collider colision)
     {
-        Instantiate(enemy,new Vector3(6.79f,0.54f,0.0f), transform.Rotate(Vector3(0.0f, 0.0f, 5.0f)));
+        
         Debug.Log("OnEmitAttackCollision");
-        Destroy(enemy);
-        elife.Dead();
+        BoxCollider boxcolider = gameObject.AddComponent<BoxCollider>();
+        boxcolider.isTrigger = true;
+        boxcolider.center = new Vector3(0.0f, 1.5f, 0.8f);
+        boxcolider.size = new Vector3(1.0f, 1.5f, 2.5f);
     }
-   
 
-    public void Dead()
+
+    private void OnTriggerEnter(Collider collision)
     {
-        SceneManager.LoadScene("result");
+        if (collision.tag == "enemy")
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene("gameover");
+
+        }
     }
 }
 
