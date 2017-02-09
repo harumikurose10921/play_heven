@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
     GameObject enemy;
-   
+    Enemylife elife;
+    public int count = 0;
     IEnumerator _SetTrigger(string name)
     {
         Animator animator = GetComponent<Animator>();
@@ -52,6 +54,7 @@ public class Player : MonoBehaviour {
     {
         Debug.Log("OnEmitAttackCollision");
         Destroy(enemy);
+        elife.Dead();
     }
-
+   
 }

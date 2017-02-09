@@ -4,9 +4,9 @@ using System.Collections;
 public class Enemy : MonoBehaviour {
     GameObject player;
     GameObject enemy;
+    Player plyer;
     public float move=0.05f;
     public float epos = 1.0f;
-    public int life = 2;
     IEnumerator _SetTrigger(string name)
     {
         Animator animator = GetComponent<Animator>();
@@ -50,8 +50,10 @@ public class Enemy : MonoBehaviour {
         }
         
 	}
-   void OnEmitCollision(Collider colider)
+    void OnEmitCollision(Collider colider)
     {
+        Debug.Log("OnEmitAttackCollision");
         Destroy(player);
+        //plyer.
     }
 }
