@@ -10,10 +10,13 @@ public class result : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.A) == true) 
+
+        if (Input.GetKey(KeyCode.A) == true)
         {
             SceneManager.LoadScene("result");
         }
-	
-	}
+
+
+    }
+ 
 }

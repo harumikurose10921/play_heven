@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour {
     GameObject player;
@@ -27,34 +28,53 @@ public class Enemy : MonoBehaviour {
 	void Start () {
         player = GameObject.Find("overlord");
         enemy = GameObject.Find("DungeonSkeleton_demo");
-	}
+        
+    }
 	
 	// Update is called once per frame
 	void Update () {
-       
-        float dist = Vector3.Distance(transform.localPosition, player.transform.localPosition);
-        Vector3 pos = transform.localPosition;
-        if (dist > epos)
+        if (player)
         {
-            pos.x -= move;
+            float dist = Vector3.Distance(transform.localPosition, player.transform.localPosition);
+            Vector3 pos = transform.localPosition;
+            if (dist > epos)
+            {
+                pos.x -= move;
+            }
+
+            else if (dist < epos)
+            {
+                SetTrigger("isattack");
+            }
+
+            transform.localPosition = pos;
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Instantiate(enemy, transform.localPosition, transform.rotation);
+            }
         }
-        if (dist < epos)
-        {
-            SetTrigger("isattack");
-            //GameObject.Destroy(gameObject);
-        }
-        transform.localPosition = pos;
-        if (Input.GetKey(KeyCode.Space))
-        {
-            Instantiate(enemy, transform.localPosition, transform.rotation);
-        }
-        
-	}
+
+    }
     void OnEmitCollision(Collider colider)
     {
-        Instantiate(enemy, transform.localPosition, transform.rotation);
+        //Instantiate(enemy, transform.localPosition, transform.rotation);
         Debug.Log("OnEmitAttackCollision");
-        Destroy(player);
-        plyer.Dead();
+        BoxCollider boxcolider = gameObject.AddComponent<BoxCollider>();
+        boxcolider.isTrigger = true;
+        boxcolider.center = new Vector3(0.0f, 1.5f, 0.5f);
+        boxcolider.size = new Vector3(2.0f, 1.0f, 1f);
+       
+
+        
+               
+    }
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.tag == "Player")
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene("result");
+            
+        }
     }
 }

@@ -12,7 +12,8 @@ public class gameover : MonoBehaviour {
 	void Update () {
         if (Input.GetKey(KeyCode.A) == true)
         {
-            SceneManager.LoadScene("result");
+            SceneManager.LoadScene("gameover");
         }
     }
+    
 }
