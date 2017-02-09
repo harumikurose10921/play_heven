@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-public class result : MonoBehaviour {
+public class gameover : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -10,10 +10,9 @@ public class result : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.A) == true) 
+        if (Input.GetKey(KeyCode.A) == true)
         {
             SceneManager.LoadScene("result");
         }
-	
-	}
+    }
 }
