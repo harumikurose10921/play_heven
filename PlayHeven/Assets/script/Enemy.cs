@@ -25,10 +25,9 @@ public class Enemy : MonoBehaviour {
         StartCoroutine(_SetTrigger(name));
     }
 	// Use this for initialization
-	void Start () {
+	void Start() {
         player = GameObject.Find("overlord");
         enemy = GameObject.Find("DungeonSkeleton_demo");
-        
     }
 	
 	// Update is called once per frame

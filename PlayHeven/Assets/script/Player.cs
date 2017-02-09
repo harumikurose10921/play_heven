@@ -65,7 +65,7 @@ public class Player : MonoBehaviour {
         if (collision.tag == "enemy")
         {
             Destroy(gameObject);
-            SceneManager.LoadScene("gameover");
+           // SceneManager.LoadScene("gameover");
 
         }
     }
