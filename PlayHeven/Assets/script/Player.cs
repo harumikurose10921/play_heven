@@ -56,8 +56,7 @@ public class Player : MonoBehaviour {
         BoxCollider boxcolider = gameObject.AddComponent<BoxCollider>();
         boxcolider.isTrigger = true;
         boxcolider.center = new Vector3(0.0f, 1.5f, 0.8f);
-        boxcolider.size = new Vector3(1.0f, 1.5f, 3.5f);
-        boxcolider.isTrigger = false;
+        boxcolider.size = new Vector3(1.0f, 1.5f, 2.5f);
     }
 
 
@@ -66,11 +65,9 @@ public class Player : MonoBehaviour {
         if (collision.tag == "enemy")
         {
             Destroy(gameObject);
-            SceneManager.LoadScene("gameover");
-            
+           // SceneManager.LoadScene("gameover");
+
         }
-        
     }
-    
 }
 
