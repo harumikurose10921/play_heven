@@ -56,7 +56,8 @@ public class Player : MonoBehaviour {
         BoxCollider boxcolider = gameObject.AddComponent<BoxCollider>();
         boxcolider.isTrigger = true;
         boxcolider.center = new Vector3(0.0f, 1.5f, 0.8f);
-        boxcolider.size = new Vector3(1.0f, 1.5f, 2.5f);
+        boxcolider.size = new Vector3(1.0f, 1.5f, 3.5f);
+        boxcolider.isTrigger = false;
     }
 
 
@@ -66,8 +67,10 @@ public class Player : MonoBehaviour {
         {
             Destroy(gameObject);
             SceneManager.LoadScene("gameover");
-
+            
         }
+        
     }
+    
 }
 

@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour {
     Player plyer;
     public float move=0.05f;
     public float epos = 1.0f;
+    public float count= 0;
     IEnumerator _SetTrigger(string name)
     {
         Animator animator = GetComponent<Animator>();
@@ -62,19 +63,19 @@ public class Enemy : MonoBehaviour {
         BoxCollider boxcolider = gameObject.AddComponent<BoxCollider>();
         boxcolider.isTrigger = true;
         boxcolider.center = new Vector3(0.0f, 1.5f, 0.5f);
-        boxcolider.size = new Vector3(2.0f, 1.0f, 1f);
-       
-
-        
-               
+        boxcolider.size = new Vector3(1.0f, 1.0f, 0.5f);
+        boxcolider.isTrigger = false;
     }
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.tag == "Player")
         {
             Destroy(gameObject);
+            count++;
+        }
+        if(count > 1)
+        {
             SceneManager.LoadScene("result");
-            
         }
     }
 }
