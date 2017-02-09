@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
     GameObject enemy;
+    Enemylife elife;
     public int count = 0;
-    
     IEnumerator _SetTrigger(string name)
     {
         Animator animator = GetComponent<Animator>();
@@ -27,18 +27,14 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         enemy = GameObject.Find("DungeonSkeleton_demo");
-        
-
     }
 	
 	// Update is called once per frame
 	void Update () {
-
         Animator animator = GetComponent<Animator>();
         if (Input.GetKeyDown(KeyCode.A) == true)
         {
             SetTrigger("isattack1L");
-           
         }
         if (Input.GetKeyDown(KeyCode.D) == true)
         {
@@ -47,30 +43,25 @@ public class Player : MonoBehaviour {
         if (Input.GetMouseButtonDown(0))
         {
             SetTrigger("isattack1L");
-      
         }
         if (Input.GetMouseButtonDown(1))
         {
             SetTrigger("block");
         }
-
+        
 	}
     void OnEmitAttackCollision(Collider colision)
     {
+        Instantiate(enemy,new Vector3(6.79f,0.54f,0.0f), transform.Rotate(Vector3(0.0f, 0.0f, 5.0f)));
         Debug.Log("OnEmitAttackCollision");
-
-        BoxCollider boxclider = gameObject.AddComponent<BoxCollider>();
-        boxclider.isTrigger = true;
-        boxclider.center = new Vector3(0.0f, 1.5f, 0.8f);
-        boxclider.size = new Vector3(1.0f, 2.0f, 2.3f);
-
+        Destroy(enemy);
+        elife.Dead();
     }
-    private void OnTriggerEnter(Collider collision)
+   
+
+    public void Dead()
     {
-        if (collision.gameObject.tag == "enemy")
-        {
-            Destroy(gameObject);
-            SceneManager.LoadScene("gameover");
-        }
+        SceneManager.LoadScene("result");
     }
 }
+
