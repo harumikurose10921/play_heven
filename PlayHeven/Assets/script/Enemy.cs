@@ -59,10 +59,12 @@ public class Enemy : MonoBehaviour {
         //Instantiate(enemy, transform.localPosition, transform.rotation);
         Debug.Log("OnEmitAttackCollision");
         BoxCollider boxcolider = gameObject.AddComponent<BoxCollider>();
-        boxcolider.isTrigger = true;
-        boxcolider.center = new Vector3(0.0f, 1.5f, 0.5f);
-        boxcolider.size = new Vector3(2.0f, 1.0f, 1f);
-       
+        if (boxcolider.isTrigger = true)
+        {
+            boxcolider.center = new Vector3(0.0f, 1.0f, 1.0f);
+            boxcolider.size = new Vector3(1.0f, 1.5f, 1.4f);
+        }
+            boxcolider.isTrigger = false;
 
         
                

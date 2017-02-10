@@ -54,9 +54,13 @@ public class Player : MonoBehaviour {
         
         Debug.Log("OnEmitAttackCollision");
         BoxCollider boxcolider = gameObject.AddComponent<BoxCollider>();
-        boxcolider.isTrigger = true;
-        boxcolider.center = new Vector3(0.0f, 1.5f, 0.8f);
-        boxcolider.size = new Vector3(1.0f, 1.5f, 2.5f);
+        if (boxcolider.isTrigger = true)
+        {
+            boxcolider.center = new Vector3(0.0f, 1.0f, 0.8f);
+            boxcolider.size = new Vector3(1.0f, 1.5f, 1.4f);
+        }
+            boxcolider.isTrigger = false;
+        
     }
 
 
